@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #130241;
+    user-select: none;
+  }
+  
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: rgb(2,0,36);
+    background: linear-gradient(260deg, rgba(2,0,36,1) 44%, rgba(46,39,181,1) 100%, rgba(0,212,255,1) 100%);
+    padding: 40px 60px;
+  }
+  
+  h2 {
+    font-size: 3em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .reset {
+    padding: 15px 20px;
+    width: 100%;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .reset:focus {
+    color: #ec38bc;
+    background-color: #262809;
+  }
+  
+  .game {
+    width: 760px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+  }
+  
+  .item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+  
+    font-size: 3em;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+  }
+  
+  .item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #404040;
+    /* opacity: 0.85; */
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+  }
+  
+  .item.boxOpen {
+    transform: rotateY(0deg);
+  }
+  
+  .boxOpen::after,
+  .boxMatch::after {
+    transform: rotateY(180deg);
+  }
+
+/* Consulta de mídia para telas menores, como dispositivos móveis */
+@media (max-width: 660px) {
+
+    body{
+        min-height:0vh
+    }
+    .container{
+        height: 100%;
+    }
+
+    h2{
+        font-size: 1em;
+    }
+  
+    .reset {
+      padding: 0%;  
+        width: auto;
+      font-size: 0.8em; /* Aumente o tamanho do botão de reset para facilitar o toque */
+    }
+  
+    .game {
+      flex-direction: column; /* Empilhe as cartas verticalmente para uma exibição mais adequada em dispositivos móveis */
+      width: auto;
+    }
+  
+    .item {
+      width: 50px;
+      height: 50px;
+      font-size: 1.0em; /* Reduza o tamanho das cartas e o tamanho da fonte para caber em telas menores */
+    }
+  }
+  
+      
